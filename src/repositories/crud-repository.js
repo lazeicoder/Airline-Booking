@@ -38,4 +38,30 @@ class CrudRepository {
             throw error;
         }
     }
+
+    async getAll(data) {
+        try {
+            const response = await this.model.findAll(data);
+            return response;
+        } catch (error) {
+            Logger.error(`Something went wrong in the Crud Repo : create`);
+            throw error;
+        }
+    }
+
+    async update(id, data) { 
+        try {
+            const response = await this.model.update(data, {
+                where: {
+                    id: id 
+                }
+            });
+            return response;
+        } catch (error) {
+            Logger.error(`Something went wrong in the Crud Repo : create`);
+            throw error;
+        }
+    }
 }
+
+module.exports = CrudRepository;
