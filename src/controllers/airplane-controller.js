@@ -8,6 +8,8 @@ const { StatusCodes, INTERNAL_SERVER_ERROR } = require('http-status-codes');
 
 async function createAirplane(req, res) {
     try {
+        console.log('Inside controller.');
+        console.log(req.body);
         const airplane = await AirplaneService.createAirplane({
             modelNumber: req.body.modelNumber,
             capacity: req.body.capacity 
